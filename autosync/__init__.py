@@ -4,10 +4,11 @@
 # Automatically synchronise the decks when idle for a certain period
 
 from aqt import mw
+config = mw.addonManager.getConfig(__name__)
 from anki.hooks import addHook
 
-IDLE_PERIOD = 15
-RETRY_PERIOD = 2
+IDLE_PERIOD = config['idlePeriod']
+RETRY_PERIOD = config['retryPeriod']
 
 class AutoSync:
     def syncDecks(self):
